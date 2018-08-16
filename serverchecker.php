@@ -5,14 +5,10 @@ if (isset($_GET['ip'])) {
   $checkifexists = "SELECT * FROM computers WHERE ip = '$ip'";
   $checkifexists = mysqli_query($sqlcon, $checkifexists);
   if ($checkifexists->num_rows > 0) {
-// //$port = "80";
-// //if (! $sock=@fsockopen($ip, $port, $num, $error, 0.25)) {
-// if (! $shell = @exec("start /b ping $ip -n 1")) {
-//   echo "<font color='red'>$shell</font>";
-// } else {
-//   echo "<font color='green'>$shell</font>";
-// }
-$shell = shell_exec('ping -c 1 -W 1 '.$ip);
+// For Linux users
+    $shell = shell_exec('ping -c 1 -W 1 '.$ip);
+// For Windows users (uncomment line below)
+//  $shell = shell_exec('ping -n 1 '.$ip);
 if ($shell) {
   if (!strpos($shell, "Unreachable") !== false
    && !strpos($shell, "100% packet loss") !== false
