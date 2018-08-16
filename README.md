@@ -16,3 +16,5 @@ A simple PHP script to monitor local computers and send WOL packets.
 * Edit sqlcon.php and set your SQL parameters
 * Add computers you want to monitor or wake to the table
 * Win
+
+It is recommended that you password protect this folder, as it could potentially open up for unwanted security threats.
