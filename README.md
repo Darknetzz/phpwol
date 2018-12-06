@@ -3,12 +3,8 @@ A simple PHP script to monitor local computers and send WOL packets.
 
 # requirements
 * Webserver with PHP and MySQL support
-* Wakeonlan
+* Wakeonlan (To install wakeonlan, use *apt-get install wakeonlan*)
 * Preferrably a Linux server, or you will have to change the wakeonlan method
-
-# dependencies
-Wakeonlan
-* To install wakeonlan, use *apt-get install wakeonlan*
 
 # installation
 * Download the repo
