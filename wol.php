@@ -10,7 +10,7 @@ if (isset($_GET['mac'])) {
   echo "<div class='alert alert-success'><!--WOL packet sent to $mac<br>-->
   <i>$wake</i></div>";
 } else {
-  echo "<div class='alert alert-danger'>Failed to send WOL packet. Did you do <i>apt-get install wakeonlan</i>?<br>
+  echo "<div class='alert alert-danger'>Failed to send WOL packet. Did you do <i><a href='?do=installwol'>apt-get install wakeonlan</a></i>?<br>
   <i>$wake</i></div>";
 }
 } else {
