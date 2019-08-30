@@ -41,7 +41,10 @@
  }
  # Get the settings
  $DarkTheme = $json['DarkTheme'];
+ $DarkThemeOnOff = ($DarkTheme == true) ? "<p>Dark mode <a href='?darkmode=1'><b>ON</b></a> <a href='?darkmode=0'>OFF</a></p>" : "<p>Dark mode <a href='?darkmode=1'>ON</a> <a href='?darkmode=0'><b>OFF</b></a></p>";
  $VerbosePing = $json['VerbosePing'];
+ $VerbosePingOnOff = ($VerbosePing == true) ? "<p>Verbose ping <a href='?verboseping=1'><b>ON</b></a> <a href='?verboseping=0'>OFF</a></p>" : "<p>Verbose ping <a href='?verboseping=1'>ON</a> <a href='?verboseping=0'><b>OFF</b></a></p>";
+
  
   # Set dark theme
   if ($DarkTheme == true) {
@@ -60,8 +63,8 @@
 <h1>Wake on lan</h3>
   <p>What server do you want to wake up?</p>
   <p><button onClick="updateAll();">Update</button>
-  <p>Dark mode <a href="?darkmode=1">ON</a> <a href="?darkmode=0">OFF</a></p>
-  <p>Verbose ping <a href="?verboseping=1">ON</a> <a href="?verboseping=0">OFF</a></p>
+  <?php echo $DarkThemeOnOff; ?>
+  <?php echo $VerbosePingOnOff; ?>
 <div id='wol'>
 <?php
 if (isset($_GET['do']) && $_GET['do'] == "installwol") {
@@ -93,6 +96,7 @@ if (isset($_GET['do']) && $_GET['do'] == "installwol") {
         echo "<script>console.log('VerbosePing set to FALSE')</script>";
         $urlAppend = "&verbose=0";
       }
+      $scriptappend = ""; # Set the scriptappend variable, avoids undefined error.
       while ($row = $getcomputers->fetch_assoc()) {
         echo "<tr>
         <td>$row[hostname]</td>
