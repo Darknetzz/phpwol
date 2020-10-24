@@ -1,13 +1,8 @@
 <?php 
   require_once("sqlcon.php");
   require_once("json.php");
+  include_once("bootstrap.php");
 ?>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<title>Wake-on-lan</title>
-
 <div class="container">
 <h1>Wake on lan</h3>
   <p>What server do you want to wake up?</p>
@@ -48,7 +43,7 @@ if (isset($_GET['do']) && $_GET['do'] == "installwol") {
       $scriptappend = ""; # Set the scriptappend variable, avoids undefined error.
       while ($row = $getcomputers->fetch_assoc()) {
         echo "<tr>
-        <td>$row[hostname]</td>
+        <td><a href='edit.php?id=$row[id]'>$row[hostname]</a></td>
         <td>$row[ip]</td>
         <td>$row[mac]</td>
         <td id='status$row[id]'></td>

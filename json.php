@@ -47,7 +47,7 @@
  
   # Set dark theme
   if ($DarkTheme == true) {
-    echo "<body style='background:black;'><!-- Dark theme on -->";
+    echo "<body style='background:black;color:white;'><!-- Dark theme on -->";
   } elseif ($DarkTheme == false) {
     echo "<body style='background:white;'><!-- Dark theme off -->";
   }
