@@ -47,7 +47,7 @@ if (isset($_GET['do']) && $_GET['do'] == "installwol") {
         <td>$row[ip]</td>
         <td>$row[mac]</td>
         <td id='status$row[id]'></td>
-        <td><a href='#' onClick='wake$row[id]();' class='btn btn-sm btn-secondary'>Wake</a> <a href='delete.php?id=$row[id]' class='btn btn-sm btn-danger'>Delete</a></td>
+        <td><a href='#' onClick='wake$row[id]();' class='btn btn-sm btn-secondary'>Wake</a></td>
         </tr>";
         echo "
         <script>
