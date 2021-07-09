@@ -1,9 +1,11 @@
-<br>
-<div class="container">
 <?php 
   require_once("sqlcon.php");
   require_once("json.php");
   include_once("bootstrap.php");
+  ?>
+<br>
+<div class="container">
+  <?php
   # sanitize
   $id = mysqli_real_escape_string($sqlcon, $_GET['id']);
   $getcomputer = "SELECT * FROM computers WHERE id = '$id'";
@@ -19,6 +21,8 @@
     <hr>
     <input type='submit' class='btn btn-secondary' value='Save'>
     <a href='index.php' class='btn btn-secondary'>Back</a>
+    <hr>
+    <a href='delete.php?id=$row[id]' class='btn btn-danger'>Delete</a>
     </form>";
     }
 
