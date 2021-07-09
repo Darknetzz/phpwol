@@ -28,10 +28,10 @@ if (isset($_GET['do']) && $_GET['do'] == "installwol") {
           <th>IP</th>
           <th>MAC-address</th>
           <th>Status</th>
-          <th>Wake</th>
+          <th>Action</th>
       </tr>
       <?php
-      $getcomputers = "SELECT * FROM computers";
+      $getcomputers = "SELECT * FROM computers ORDER BY ip ASC";
       $getcomputers = mysqli_query($sqlcon, $getcomputers);
       if ($VerbosePing == true) {
         echo "<script>console.log('VerbosePing set to TRUE')</script>";
@@ -47,7 +47,7 @@ if (isset($_GET['do']) && $_GET['do'] == "installwol") {
         <td>$row[ip]</td>
         <td>$row[mac]</td>
         <td id='status$row[id]'></td>
-        <td><a href='#' onClick='wake$row[id]();'>Wake</a></td>
+        <td><a href='#' onClick='wake$row[id]();' class='btn btn-sm btn-secondary'>Wake</a> <a href='delete.php?id=$row[id]' class='btn btn-sm btn-danger'>Delete</a></td>
         </tr>";
         echo "
         <script>
@@ -106,5 +106,5 @@ if (isset($_GET['do']) && $_GET['do'] == "installwol") {
       </script>";
       ?>
     </table>
-
+      <a href="add.php" class="btn btn-secondary">New device</a>
 </div>
